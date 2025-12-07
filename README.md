@@ -34,8 +34,8 @@ candles = [
     Candle("2025-01-01 10:00", 151.00, 155.00, 150.00, 154.00, 1200000),
 ]
 
-# Initialize detector (default threshold: 10%)
-detector = DojiDetector(doji_threshold=0.1)
+# Initialize detector (default threshold: 5%)
+detector = DojiDetector(doji_threshold=0.05)
 
 # Scan for patterns
 patterns = detector.scan_candles(candles)
@@ -73,9 +73,9 @@ for pattern in patterns:
 
 The `doji_threshold` parameter controls how strict the doji detection is:
 
-- **Lower values** (e.g., 0.05): Stricter detection, only very small bodies
+- **Lower values** (e.g., 0.03): Stricter detection, only very small bodies
 - **Higher values** (e.g., 0.15): More lenient, detects doji with larger bodies
-- **Default**: 0.1 (body must be ≤ 10% of total candle range)
+- **Default**: 0.05 (body must be ≤ 5% of total candle range)
 
 ## Output
 

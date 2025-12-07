@@ -34,12 +34,12 @@ class DojiDetector:
     Detects doji candlestick patterns in stock price data
     """
 
-    def __init__(self, doji_threshold: float = 0.1):
+    def __init__(self, doji_threshold: float = 0.05):
         """
         Initialize the DojiDetector
 
         Args:
-            doji_threshold: Maximum ratio of body to total range to be considered a doji (default: 0.1 or 10%)
+            doji_threshold: Maximum ratio of body to total range to be considered a doji (default: 0.05 or 5%)
         """
         self.doji_threshold = doji_threshold
         self.detected_patterns = []
@@ -197,8 +197,8 @@ def main():
         Candle("2025-01-01 12:00", 156.00, 158.00, 155.00, 157.50, 1050000),  # Not a doji
     ]
 
-    # Create detector with 10% threshold (body must be <= 10% of total range)
-    detector = DojiDetector(doji_threshold=0.1)
+    # Create detector with 5% threshold (body must be <= 5% of total range)
+    detector = DojiDetector(doji_threshold=0.05)
 
     # Scan for patterns
     print("Scanning candles for doji patterns...")
